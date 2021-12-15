@@ -41,25 +41,22 @@ class ViewController: UIViewController {
             let welcomeVC = segue.destination as! WelcomeViewController
             welcomeVC.welcomeUser = "Welcome, \(userNameEnter)!"
         } else {
-            let allertController = UIAlertController(title: "Access denied", message: "Wrong user name or password.", preferredStyle: .alert)
-            let action = UIAlertAction(title: "Cancel", style: .cancel)
-            allertController.addAction(action)
-            self.present(allertController, animated: true, completion: nil)
+            let allertControllerLogIn = UIAlertController(title: "Access denied", message: "Wrong user name or password.", preferredStyle: .alert)
+            allertControllerLogIn.addAction(UIAlertAction(title: "Close", style: .default))
+            self.present(allertControllerLogIn, animated: true, completion: nil)
         }
     }
         
     
     @IBAction func forgotUserNameTap() {
         let allertControllerUserName = UIAlertController(title: "Oops!", message: "Your name is Dmitriy.", preferredStyle: .alert)
-        let actionAllertUserName = UIAlertAction(title: "Fine", style: .default)
-            allertControllerUserName.addAction(actionAllertUserName)
-            self.present(allertControllerUserName, animated: true, completion: nil)
+        allertControllerUserName.addAction(UIAlertAction(title: "Fine", style: .default))
+        self.present(allertControllerUserName, animated: true, completion: nil)
     }
     
     @IBAction func forgotPasswordTap() {
         let allertControllerPassword = UIAlertController(title: "It so sad!", message: "Your password is Oleyner101.", preferredStyle: .alert)
-        let actionAllertPassword = UIAlertAction(title: "Ok", style: .default)
-            allertControllerPassword.addAction(actionAllertPassword)
+        allertControllerPassword.addAction(UIAlertAction(title: "OK", style: .default))
             self.present(allertControllerPassword, animated: true, completion: nil)
     }
     

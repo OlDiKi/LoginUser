@@ -19,6 +19,17 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         userNameTitle.layer.cornerRadius = 10
         passwordTitle.layer.cornerRadius = 10
+        
+        let color1 = UIColor(red: 0 / 255, green: 183 / 255, blue: 142 / 255, alpha: 1).cgColor
+        let color2 = UIColor(red: 0 / 255, green: 153 / 255, blue: 121 / 255, alpha: 1).cgColor
+        let color3 = UIColor(red: 0 / 255, green: 90 / 255, blue: 121 / 255, alpha: 1).cgColor
+        
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.frame = self.view.bounds
+        gradientLayer.colors = [color1, color2, color3]
+        gradientLayer.startPoint = CGPoint(x: 0.0, y: 0.0)
+        gradientLayer.endPoint = CGPoint(x: 0.0, y: 1.0)
+        self.view.layer.insertSublayer(gradientLayer, at: 0)
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -30,7 +41,7 @@ class ViewController: UIViewController {
             let welcomeVC = segue.destination as! WelcomeViewController
             welcomeVC.welcomeUser = "Welcome, \(userNameEnter)!"
         } else {
-            let allertController = UIAlertController(title: "Access Denied", message: "Wrong user name or password", preferredStyle: .alert)
+            let allertController = UIAlertController(title: "Access denied", message: "Wrong user name or password.", preferredStyle: .alert)
             let action = UIAlertAction(title: "Cancel", style: .cancel)
             allertController.addAction(action)
             self.present(allertController, animated: true, completion: nil)
@@ -50,5 +61,10 @@ class ViewController: UIViewController {
         let actionAllertPassword = UIAlertAction(title: "Ok", style: .default)
             allertControllerPassword.addAction(actionAllertPassword)
             self.present(allertControllerPassword, animated: true, completion: nil)
+    }
+    
+    @IBAction func unwind(for segue: UIStoryboardSegue) {
+        userNameTitle.text = ""
+        passwordTitle.text = ""
     }
 }

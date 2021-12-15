@@ -31,24 +31,17 @@
                                     </textField>
                                 </subviews>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pBj-jW-VGt">
-                                <rect key="frame" x="129" y="215" width="54" height="36"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                <state key="normal" title="Log In">
-                                    <color key="titleColor" systemColor="linkColor"/>
-                                </state>
-                                <connections>
-                                    <segue destination="FN1-Ud-8vD" kind="presentation" id="94K-cf-QqA"/>
-                                </connections>
-                            </button>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="ggb-9V-umW">
-                                <rect key="frame" x="7" y="298" width="307" height="31"/>
+                                <rect key="frame" x="7" y="352" width="307" height="31"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jEL-U8-SBw">
                                         <rect key="frame" x="0.0" y="0.0" width="149.5" height="31"/>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="Forgot User Name?"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Forgot User Name?">
+                                            <backgroundConfiguration key="background">
+                                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </backgroundConfiguration>
+                                        </buttonConfiguration>
                                         <connections>
                                             <action selector="forgotUserNameTap" destination="BYZ-38-t0r" eventType="touchUpInside" id="E3U-7t-KwM"/>
                                         </connections>
@@ -56,26 +49,45 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ntJ-sv-6Mn">
                                         <rect key="frame" x="157.5" y="0.0" width="149.5" height="31"/>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="Forgot Password?"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Forgot Password?">
+                                            <backgroundConfiguration key="background">
+                                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </backgroundConfiguration>
+                                        </buttonConfiguration>
                                         <connections>
                                             <action selector="forgotPasswordTap" destination="BYZ-38-t0r" eventType="touchUpInside" id="gdY-y4-gJ0"/>
                                         </connections>
                                     </button>
                                 </subviews>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pBj-jW-VGt">
+                                <rect key="frame" x="119" y="222" width="83" height="38"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="Log In"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Log In" titleAlignment="automatic">
+                                    <backgroundConfiguration key="background">
+                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </backgroundConfiguration>
+                                    <fontDescription key="titleFontDescription" type="boldSystem" pointSize="20"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <segue destination="FN1-Ud-8vD" kind="presentation" id="94K-cf-QqA"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemGray5Color"/>
                         <constraints>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="pBj-jW-VGt" secondAttribute="trailing" constant="137" id="3sf-4d-tDt"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="CUr-io-aLR" secondAttribute="trailing" constant="20" id="49p-oG-CRe"/>
+                            <constraint firstItem="pBj-jW-VGt" firstAttribute="top" secondItem="CUr-io-aLR" secondAttribute="bottom" constant="39" id="AjI-BA-Lwz"/>
                             <constraint firstItem="CUr-io-aLR" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="95" id="Asx-bD-KeM"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ggb-9V-umW" secondAttribute="trailing" constant="6" id="JyQ-cb-f1Z"/>
-                            <constraint firstItem="pBj-jW-VGt" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="129" id="eYK-oO-VZ1"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="pBj-jW-VGt" secondAttribute="trailing" constant="118" id="KqO-TC-xC1"/>
                             <constraint firstItem="ggb-9V-umW" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="7" id="h3t-oy-KEf"/>
                             <constraint firstItem="CUr-io-aLR" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="jPJ-SL-5jL"/>
-                            <constraint firstItem="ggb-9V-umW" firstAttribute="top" secondItem="pBj-jW-VGt" secondAttribute="bottom" constant="47" id="rcv-BA-bGI"/>
-                            <constraint firstItem="pBj-jW-VGt" firstAttribute="top" secondItem="CUr-io-aLR" secondAttribute="bottom" constant="32" id="soB-ni-xaR"/>
+                            <constraint firstItem="ggb-9V-umW" firstAttribute="top" secondItem="pBj-jW-VGt" secondAttribute="bottom" constant="92" id="jU3-c6-C5w"/>
+                            <constraint firstItem="pBj-jW-VGt" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="119" id="n57-Tj-1mx"/>
                         </constraints>
                     </view>
                     <toolbarItems/>
@@ -88,7 +100,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1613.5514018691588" y="67.386609071274307"/>
+            <point key="canvasLocation" x="1612.5" y="66.549295774647888"/>
         </scene>
         <!--WelcomeViewController-->
         <scene sceneID="yvk-qF-H0X">
@@ -104,15 +116,21 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pngegg (1)" translatesAutoresizingMaskIntoConstraints="NO" id="gbb-C4-eDW">
+                                <rect key="frame" x="35" y="149" width="250" height="250"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="gbb-C4-eDW" secondAttribute="height" multiplier="1:1" id="vTv-fW-Krf"/>
+                                </constraints>
+                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KBP-U1-AhY">
-                                <rect key="frame" x="122" y="396" width="76" height="36"/>
+                                <rect key="frame" x="123" y="433" width="74" height="36"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" title="Log Out">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <action selector="logOutButton" destination="FN1-Ud-8vD" eventType="touchUpInside" id="c0t-uj-FRw"/>
+                                    <segue destination="YyV-SG-NBA" kind="unwind" unwindAction="unwindFor:" id="G8W-Dc-nnr"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -120,10 +138,13 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <color key="tintColor" red="0.99409538509999995" green="0.01070986222" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
-                            <constraint firstItem="KBP-U1-AhY" firstAttribute="leading" secondItem="WqX-ah-qH8" secondAttribute="leading" constant="122" id="Kz8-Rm-FiV"/>
-                            <constraint firstItem="WqX-ah-qH8" firstAttribute="bottom" secondItem="KBP-U1-AhY" secondAttribute="bottom" constant="116" id="ch6-gl-erz"/>
+                            <constraint firstItem="gbb-C4-eDW" firstAttribute="centerX" secondItem="WqX-ah-qH8" secondAttribute="centerX" id="87o-qs-pel"/>
+                            <constraint firstItem="gbb-C4-eDW" firstAttribute="width" secondItem="ZPm-c7-VaU" secondAttribute="height" multiplier="125:274" id="A1y-KW-Lrq"/>
+                            <constraint firstItem="WqX-ah-qH8" firstAttribute="trailing" secondItem="KBP-U1-AhY" secondAttribute="trailing" constant="123" id="GY0-kt-wmp"/>
+                            <constraint firstItem="WqX-ah-qH8" firstAttribute="bottom" secondItem="KBP-U1-AhY" secondAttribute="bottom" constant="79" id="aLb-bc-jna"/>
+                            <constraint firstItem="KBP-U1-AhY" firstAttribute="leading" secondItem="WqX-ah-qH8" secondAttribute="leading" constant="123" id="bJr-v7-UCw"/>
                             <constraint firstItem="uvh-oY-0k9" firstAttribute="top" secondItem="WqX-ah-qH8" secondAttribute="top" constant="77" id="d6w-JN-V22"/>
-                            <constraint firstItem="WqX-ah-qH8" firstAttribute="trailing" secondItem="KBP-U1-AhY" secondAttribute="trailing" constant="122" id="hiT-OP-Ucc"/>
+                            <constraint firstItem="gbb-C4-eDW" firstAttribute="centerY" secondItem="WqX-ah-qH8" secondAttribute="centerY" id="g7m-xh-BH8"/>
                             <constraint firstItem="uvh-oY-0k9" firstAttribute="leading" secondItem="WqX-ah-qH8" secondAttribute="leading" constant="92" id="hsC-bI-ZMb"/>
                             <constraint firstItem="WqX-ah-qH8" firstAttribute="trailing" secondItem="uvh-oY-0k9" secondAttribute="trailing" constant="91" id="jdD-rv-vvW"/>
                         </constraints>
@@ -134,14 +155,13 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3tQ-me-jk1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="YyV-SG-NBA" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2317.2897196261679" y="67.386609071274307"/>
+            <point key="canvasLocation" x="2315.625" y="66.549295774647888"/>
         </scene>
     </scenes>
     <resources>
-        <systemColor name="linkColor">
-            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
+        <image name="pngegg (1)" width="512" height="512"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

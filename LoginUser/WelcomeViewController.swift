@@ -28,12 +28,5 @@ class WelcomeViewController: UIViewController {
         gradientLayer.endPoint = CGPoint(x: 0.0, y: 1.0)
         self.view.layer.insertSublayer(gradientLayer, at: 0)
     }
-    
-    
-    
-    @IBAction func logOutButton() {
-        dismiss(animated: true)
-    }
-
 }
    

@@ -9,7 +9,7 @@ import UIKit
 
 class WelcomeViewController: UIViewController {
 
-    @IBOutlet weak var welcomeLabel: UILabel!
+    @IBOutlet var welcomeLabel: UILabel!
     
     var welcomeUser = ""
     

@@ -7,19 +7,64 @@
 
 import UIKit
 
-let userNameEnter = "Dmitriy"
-let passwordEnter = "Oleyner101"
+class LoginViewController: UIViewController {
 
-class ViewController: UIViewController {
-
-    @IBOutlet weak var userNameTitle: UITextField!
-    @IBOutlet weak var passwordTitle: UITextField!
-     
+//MARK: - IB Outlets
+    @IBOutlet var userNameTitle: UITextField!
+    @IBOutlet var passwordTitle: UITextField!
+    
+//MARK: - Private properties
+    private let user = "Dmitriy"
+    private let password = "Oleyner101"
+    
+//MARK: - Navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let welcomeVC = segue.destination as? WelcomeViewController else { return }
+        welcomeVC.welcomeUser = user
+    }
+    
+//MARK: - Display
     override func viewDidLoad() {
         super.viewDidLoad()
         userNameTitle.layer.cornerRadius = 10
         passwordTitle.layer.cornerRadius = 10
+        gradientBackground()
+    }
+    
+ //MARK: - IBActions
+    @IBAction func logInTap() {
+        if userNameTitle.text != user || passwordTitle.text != password {
+            showAlert(title: "Invalid login or pasword", message: "Please, enter correct login and password", textField: passwordTitle)
+        }
+    }
+
+    
+    @IBAction func forgotUserNameTap(_ sender: UIButton) {
+        showAlert(title: "Oops!", message: "You name is \(user)")
+    }
+    
+    @IBAction func forgotPasswordTap() {
+        showAlert(title: "It's so sad!", message: "Your password is \(password)")
+    }
+    
+    @IBAction func unwind(for segue: UIStoryboardSegue) {
+        userNameTitle.text = ""
+        passwordTitle.text = ""
+    }
+}
+    
+// MARK: - Private Methods
         
+extension LoginViewController {
+    private func showAlert(title: String, message: String, textField: UITextField? = nil) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "OK", style: .default) { _ in textField?.text = ""
+        }
+        alert.addAction(okAction)
+        present(alert, animated: true)
+        }
+    
+    private func gradientBackground () {
         let color1 = UIColor(red: 0 / 255, green: 183 / 255, blue: 142 / 255, alpha: 1).cgColor
         let color2 = UIColor(red: 0 / 255, green: 153 / 255, blue: 121 / 255, alpha: 1).cgColor
         let color3 = UIColor(red: 0 / 255, green: 90 / 255, blue: 121 / 255, alpha: 1).cgColor
@@ -31,37 +76,26 @@ class ViewController: UIViewController {
         gradientLayer.endPoint = CGPoint(x: 0.0, y: 1.0)
         self.view.layer.insertSublayer(gradientLayer, at: 0)
     }
-    
+}
+
+// MARK: - Alert Controller
+extension LoginViewController: UITextFieldDelegate {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        super.view.endEditing(true)
+        super.touchesBegan(touches, with: event)
+        view.endEditing(true)
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if userNameTitle.text == userNameEnter && passwordTitle.text == passwordEnter {
-            let welcomeVC = segue.destination as! WelcomeViewController
-            welcomeVC.welcomeUser = "Welcome, \(userNameEnter)!"
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if textField == userNameTitle {
+            passwordTitle.becomeFirstResponder()
         } else {
-            let allertControllerLogIn = UIAlertController(title: "Access denied", message: "Wrong user name or password.", preferredStyle: .alert)
-            allertControllerLogIn.addAction(UIAlertAction(title: "Close", style: .default))
-            self.present(allertControllerLogIn, animated: true, completion: nil)
+            logInTap()
+            performSegue(withIdentifier: "showWelcomeVC", sender: nil)
         }
-    }
-        
-    
-    @IBAction func forgotUserNameTap() {
-        let allertControllerUserName = UIAlertController(title: "Oops!", message: "Your name is Dmitriy.", preferredStyle: .alert)
-        allertControllerUserName.addAction(UIAlertAction(title: "Fine", style: .default))
-        self.present(allertControllerUserName, animated: true, completion: nil)
-    }
-    
-    @IBAction func forgotPasswordTap() {
-        let allertControllerPassword = UIAlertController(title: "It so sad!", message: "Your password is Oleyner101.", preferredStyle: .alert)
-        allertControllerPassword.addAction(UIAlertAction(title: "OK", style: .default))
-            self.present(allertControllerPassword, animated: true, completion: nil)
-    }
-    
-    @IBAction func unwind(for segue: UIStoryboardSegue) {
-        userNameTitle.text = ""
-        passwordTitle.text = ""
+        return true
     }
 }
+
+
+
+

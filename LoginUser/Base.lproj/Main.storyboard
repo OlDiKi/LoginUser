@@ -11,7 +11,7 @@
         <!--LoginViewController-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" userLabel="LoginViewController" customClass="ViewController" customModule="LoginUser" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" userLabel="LoginViewController" customClass="LoginViewController" customModule="LoginUser" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -23,11 +23,17 @@
                                         <rect key="frame" x="0.0" y="0.0" width="280" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="BYZ-38-t0r" id="JGK-Ud-fVs"/>
+                                        </connections>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3Lc-sw-msH">
                                         <rect key="frame" x="0.0" y="54" width="280" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="BYZ-38-t0r" id="fXh-Tq-hNB"/>
+                                        </connections>
                                     </textField>
                                 </subviews>
                             </stackView>
@@ -43,7 +49,7 @@
                                             </backgroundConfiguration>
                                         </buttonConfiguration>
                                         <connections>
-                                            <action selector="forgotUserNameTap" destination="BYZ-38-t0r" eventType="touchUpInside" id="E3U-7t-KwM"/>
+                                            <action selector="forgotUserNameTap:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Gk4-1e-Ksy"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ntJ-sv-6Mn">
@@ -72,7 +78,8 @@
                                     <fontDescription key="titleFontDescription" type="boldSystem" pointSize="20"/>
                                 </buttonConfiguration>
                                 <connections>
-                                    <segue destination="FN1-Ud-8vD" kind="presentation" modalPresentationStyle="fullScreen" id="94K-cf-QqA"/>
+                                    <action selector="logInTap" destination="BYZ-38-t0r" eventType="touchUpInside" id="xHE-Vd-RNm"/>
+                                    <segue destination="FN1-Ud-8vD" kind="presentation" identifier="showWelcomeVC" id="s2O-QA-yVw"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -105,7 +112,7 @@
         <!--WelcomeViewController-->
         <scene sceneID="yvk-qF-H0X">
             <objects>
-                <viewController id="FN1-Ud-8vD" userLabel="WelcomeViewController" customClass="WelcomeViewController" customModule="LoginUser" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="FN1-Ud-8vD" userLabel="WelcomeViewController" customClass="WelcomeViewController" customModule="LoginUser" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ZPm-c7-VaU">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
